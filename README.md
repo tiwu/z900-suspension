@@ -33,10 +33,6 @@ This repository includes a GitHub Actions workflow to publish the site to GitHub
 
 Small fixes and UI improvements welcome. Please open a PR with changes.
 
-## License
-
-Add your preferred license (e.g. MIT) to the repository.
-
 ## About this project
 
 The presentation content (the step-by-step suspension setup guidance and research) was created with the assistance of Perplexity AI deep research. The application code, interactive behaviors, and styling have been iteratively refined and implemented in this repository with GitHub Copilot.
