@@ -206,7 +206,7 @@ class SuspensionGuidePresentation {
         const completionPercentage = (checkedBoxes.length / checkboxes.length) * 100;
 
         // Update any progress indicators if needed
-        console.log(`Verification progress: ${completionPercentage.toFixed(0)}%`);
+    if (window.__Z900_DEBUG) console.log(`Verification progress: ${completionPercentage.toFixed(0)}%`);
         
         // Could add visual feedback here
         if (completionPercentage === 100) {
@@ -241,7 +241,7 @@ class SuspensionGuidePresentation {
             // Note: localStorage is disabled in the environment, so we'll just keep this for potential future use
             // localStorage.setItem('suspensionGuideProgress', JSON.stringify(progress));
         } catch (error) {
-            console.log('Progress saving not available in this environment');
+            if (window.__Z900_DEBUG) console.log('Progress saving not available in this environment');
         }
     }
 
@@ -261,7 +261,7 @@ class SuspensionGuidePresentation {
             //     this.updateCheckboxProgress();
             // }
         } catch (error) {
-            console.log('Progress loading not available in this environment');
+            if (window.__Z900_DEBUG) console.log('Progress loading not available in this environment');
         }
     }
 
@@ -735,23 +735,7 @@ class PresentationEnhancements {
                 }
             };
 
-        // Sync baseline date to final date fields when changed
-        document.addEventListener('input', (e) => {
-            const tgt = e.target;
-            if (!tgt || tgt.dataset.role !== 'date') return;
-            // only sync when a baseline date changed
-            if (tgt.dataset.origin === 'baseline') {
-                const val = tgt.value;
-                const finalDates = document.querySelectorAll('.record-input[data-role="date"][data-origin="final"]');
-                finalDates.forEach(fd => {
-                    // only copy if final field is empty (one-time copy)
-                    if (!fd.value) {
-                        fd.value = val;
-                        fd.dispatchEvent(new Event('input', { bubbles: true }));
-                    }
-                });
-            }
-        });
+        // (date-sync handler centralized earlier in setupAutoSaveNotes)
     }
 
     addKeyboardShortcutsHelp() {
@@ -1092,7 +1076,8 @@ function showToast(message, duration = 2200) {
         container.id = 'toastContainer';
         container.className = 'toast toast--success';
         // position top-right below header so it doesn't overlap navigation or bottom controls
-        container.style.cssText = 'position:fixed; top:72px; right:1rem; z-index:1002; background:var(--color-surface); padding:0.5rem 0.75rem; border-radius:8px; box-shadow:var(--shadow-md);';
+        // explicitly clear bottom so CSS doesn't stretch the element between top and bottom
+        container.style.cssText = 'position:fixed; top:72px; right:1rem; bottom:auto; z-index:1002; background:var(--color-surface); padding:0.5rem 0.75rem; border-radius:8px; box-shadow:var(--shadow-md); max-width:360px;';
         document.body.appendChild(container);
     }
     container.textContent = message;
@@ -1209,22 +1194,6 @@ function refreshPresentationSlidesUI() {
     }
 }
 
-function deleteRecord(index) {
-    const history = loadHistory();
-    history.splice(index, 1);
-    saveHistory(history);
-    // rebuild history slide if present
-    const savedSlide = document.querySelector('.slide[data-history="true"]');
-    if (savedSlide) {
-        savedSlide.parentNode.removeChild(savedSlide);
-        buildHistorySlide();
-        // ensure presentation UI is refreshed after deletion
-        refreshPresentationSlidesUI();
-    }
-    // always refresh UI to avoid leaving an empty/invalid active slide
-    refreshPresentationSlidesUI();
-}
-
 // Friendly label mapping: map key suffixes (roles or label starts) to human-readable labels
 const FRIENDLY_LABELS = {
     'sag-F': 'Sag (Front)',
@@ -1268,9 +1237,13 @@ function compressRecordValues(record) {
 
         // friendly label from existing key (handles older verbose keys)
         const friendly = friendlyLabelForKey(origKey).replace(/^Baseline — |^Final — /, '').trim();
-        // determine slide id number
-        const slideMatch = slidePart.match(/slide-(\d+)/);
-        const slideId = slideMatch ? slideMatch[1] : (parts[0] && /^\d+$/.test(parts[0]) ? parts[0] : 's');
+    // determine slide id number or explicit head
+    const slideMatch = slidePart.match(/slide-(\d+)/);
+    let slideId = slideMatch ? slideMatch[1] : (parts[0] && /^\d+$/.test(parts[0]) ? parts[0] : 's');
+    // If the original key used explicit 'baseline' or 'final' as head, respect that
+    const headLower = String(slidePart || '').toLowerCase();
+    let explicitHead = null;
+    if (headLower === 'baseline' || headLower === 'final') explicitHead = headLower;
 
         // find canonical field id
         let matched = null;
@@ -1289,7 +1262,7 @@ function compressRecordValues(record) {
         }
 
     // use baseline:: or final:: prefix for storage to make intent explicit
-    const posPrefix = (slideId === BASELINE_SLIDE_ID) ? 'baseline' : (slideId === FINAL_SLIDE_ID ? 'final' : (slideId === '3' ? 'baseline' : (slideId === '9' ? 'final' : 'final')));
+    const posPrefix = explicitHead ? explicitHead : ((slideId === BASELINE_SLIDE_ID) ? 'baseline' : (slideId === FINAL_SLIDE_ID ? 'final' : (slideId === '3' ? 'baseline' : (slideId === '9' ? 'final' : 'final'))));
     const newKey = `${posPrefix}::${matched}`;
         newVals[newKey] = val;
     }
@@ -1564,6 +1537,8 @@ document.addEventListener('DOMContentLoaded', () => {
         jumpTo: (section) => presentation.jumpToSection(section)
     };
 
-    console.log('2025 Kawasaki Z900 SE Suspension Guide loaded successfully!');
-    console.log('Use suspensionGuide.jumpTo("section-name") to navigate programmatically');
+    if (window.__Z900_DEBUG) {
+        console.log('2025 Kawasaki Z900 SE Suspension Guide loaded successfully!');
+        console.log('Use suspensionGuide.jumpTo("section-name") to navigate programmatically');
+    }
 });
