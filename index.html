@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 Kawasaki Z900 SE Suspension Setup Guide</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Navigation Header -->
+        <header class="nav-header">
+            <h1 class="nav-title">Z900 SE Suspension Setup</h1>
+            <div class="nav-controls">
+                <select id="slideSelector" class="form-control">
+                    <option value="0">1. Introduction</option>
+                    <option value="1">2. Components Overview</option>
+                    <option value="2">3. Tools Required</option>
+                    <option value="3">4. Baseline Recording</option>
+                    <option value="4">5. Rear Sag Setup</option>
+                    <option value="5">6. Front Sag Setup</option>
+                    <option value="6">7. Rebound Damping</option>
+                    <option value="7">8. Compression Damping</option>
+                    <option value="8">9. Testing Protocols</option>
+                    <option value="9">10. Verification & Final Checks</option>
+                    <option value="10">11. Troubleshooting</option>
+                    <option value="11">12. Quick Reference</option>
+                    <option value="12">13. Saved Records</option>
+                </select>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <span class="slide-counter" id="slideCounter">1 / 12</span>
+            </div>
+        </header>
+
+        <!-- Slide Container -->
+        <main class="slides-container" id="slidesContainer">
+            
+            <!-- Slide 1: Introduction -->
+            <div class="slide active" data-slide="0">
+                <div class="slide-content">
+            <!-- Slide 13: Saved Records History -->
+            <section class="history-container" style="display:none;">
+                <!-- placeholder for backwards compatibility; JS will render a slide if needed -->
+            </section>
+                    <h2 class="slide-title">2025 Kawasaki Z900 SE Suspension Setup Guide</h2>
+                    <div class="intro-content">
+                        <div class="overview-section">
+                            <h3>What You'll Learn</h3>
+                            <ul class="feature-list">
+                                <li>Complete suspension component identification</li>
+                                <li>Step-by-step adjustment procedures</li>
+                                <li>Professional sag setup techniques</li>
+                                <li>Damping adjustment and tuning</li>
+                                <li>Testing and verification methods</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="safety-section">
+                            <div class="status status--error">
+                                <strong>⚠️ Important Safety Notes</strong>
+                            </div>
+                            <ul class="safety-list">
+                                <li>Always record baseline settings before making changes</li>
+                                <li>Use proper tools to avoid component damage</li>
+                                <li>Make incremental adjustments (1-2 clicks maximum)</li>
+                                <li>Test thoroughly after each adjustment</li>
+                                <li>Ensure motorcycle stability during all procedures</li>
+                            </ul>
+                        </div>
+
+                        <div class="navigation-info">
+                            <h3>Navigation Instructions</h3>
+                            <p>Use the arrow buttons below or the dropdown menu above to navigate between sections. First-time users should proceed linearly through all sections.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Components Overview -->
+            <div class="slide" data-slide="1">
+                <div class="slide-content">
+                    <h2 class="slide-title">Suspension Components Overview</h2>
+                    <div class="components-grid">
+                        <div class="component-card">
+                            <h3>Front: KYB 41mm Inverted Fork</h3>
+                            <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/d5511004-89c3-46be-80b2-97b0f920563b.png" alt="Z900 SE fork adjustment locations" class="component-image">
+                            <div class="component-specs">
+                                <h4>Adjustable Features:</h4>
+                                <ul>
+                                    <li><strong>Preload:</strong> 30 turns total range</li>
+                                    <li><strong>Rebound:</strong> 19 clicks total range</li>
+                                    <li><strong>Compression:</strong> Available at fork bottom</li>
+                                </ul>
+                                <div class="factory-settings">
+                                    <h4>Factory Settings:</h4>
+                                    <p>Preload: 11 turns from full soft<br>
+                                    Rebound: 6 clicks from full hard</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="component-card">
+                            <h3>Rear: Öhlins S46 Horizontal Back-link</h3>
+                            <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/a9328548-6c5c-4216-bbde-8c514d4687a7.png" alt="Öhlins S46 shock adjustment points" class="component-image">
+                            <div class="component-specs">
+                                <h4>Adjustable Features:</h4>
+                                <ul>
+                                    <li><strong>Remote Spring Preload:</strong> Via knob or C-spanner</li>
+                                    <li><strong>Rebound Damping:</strong> Adjuster wheel above end eye</li>
+                                    <li><strong>Compression:</strong> Not adjustable on S46</li>
+                                </ul>
+                                <div class="factory-settings">
+                                    <h4>Specifications:</h4>
+                                    <p>Spring Rate: 100 N/mm default<br>
+                                    Length Range: 350mm +4/-2mm</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Tools Required -->
+            <div class="slide" data-slide="2">
+                <div class="slide-content">
+                    <h2 class="slide-title">Required Tools & Equipment</h2>
+                    <div class="tools-grid">
+                        <div class="tool-item">
+                            <img src="https://pplx-res.cloudinary.com/image/upload/v1759264682/pplx_project_search_images/5592b1a3bbed2db3bf19663f19478e0caf1fd0ff.png" alt="C-spanner tools" class="tool-image">
+                            <h3>C-Spanner (C32 recommended)</h3>
+                            <p>For rear shock preload adjustment. Available from motorcycle tool suppliers.</p>
+                        </div>
+                        
+                        <div class="tool-item">
+                            <div class="tool-placeholder">🔧</div>
+                            <h3>14mm Socket with Extension</h3>
+                            <p>For front fork preload adjustment access.</p>
+                        </div>
+
+                        <div class="tool-item">
+                            <div class="tool-placeholder">📏</div>
+                            <h3>Metric Tape Measure</h3>
+                            <p>Essential for accurate sag measurements.</p>
+                        </div>
+
+                        <div class="tool-item">
+                            <div class="tool-placeholder">🔗</div>
+                            <h3>Zip Ties</h3>
+                            <p>For fork travel measurement and verification.</p>
+                        </div>
+
+                        <div class="tool-item">
+                            <div class="tool-placeholder">🪛</div>
+                            <h3>Screwdrivers</h3>
+                            <p>Phillips and flathead for damping adjustments.</p>
+                        </div>
+
+                        <div class="tool-item">
+                            <div class="tool-placeholder">📝</div>
+                            <h3>Notepad & Pen</h3>
+                            <p>Critical for recording baseline and final settings.</p>
+                        </div>
+                    </div>
+
+                    <div class="safety-equipment">
+                        <div class="status status--warning">
+                            <strong>🦺 Safety Equipment Recommendations</strong>
+                        </div>
+                        <ul>
+                            <li>Rear paddock stand (optional but recommended)</li>
+                            <li>Work gloves for better grip</li>
+                            <li>Good lighting for clear visibility</li>
+                            <li>Level work surface</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: Baseline Recording -->
+            <div class="slide" data-slide="3">
+                <div class="slide-content">
+                    <h2 class="slide-title">Baseline Settings Recording</h2>
+                    
+                    <div class="status status--error">
+                        <strong>⚠️ Critical First Step: Document all current settings before making any changes!</strong>
+                    </div>
+
+                    <div class="recording-procedure">
+                        <h3>Step-by-Step Recording Procedure</h3>
+                        <div class="procedure-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Front Fork Settings</h4>
+                                    <ul>
+                                        <li>Count preload turns from current position to full soft</li>
+                                        <li>Count rebound clicks from current position to full hard</li>
+                                        <li>Note compression damping position (if adjusted previously)</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Rear Shock Settings</h4>
+                                    <ul>
+                                        <li>Note current preload knob position or collar setting</li>
+                                        <li>Count rebound damping clicks from current to full position</li>
+                                        <li>Measure current sag if possible</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Create Record Sheet</h4>
+                                    <div class="record-template">
+                                        <h5>Baseline Settings Record:</h5>
+                                        <p><strong>Date:</strong> ___________</p>
+                                        <p><strong>Front Preload:</strong> _____ turns from full soft</p>
+                                        <p><strong>Front Rebound:</strong> _____ clicks from full hard</p>
+                                        <p><strong>Front Compression:</strong> _____ clicks from full soft</p>
+                                        <p><strong>Rear Preload:</strong> _____ position/turns</p>
+                                        <p><strong>Rear Rebound:</strong> _____ clicks from full hard</p>
+                                        <p><strong>Current Sag (if known):</strong> F: _____ R: _____</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="why-baseline">
+                        <h3>Why Baseline Recording is Critical</h3>
+                        <ul>
+                            <li>Allows return to known working configuration</li>
+                            <li>Helps track what changes improved or worsened handling</li>
+                            <li>Essential for warranty considerations</li>
+                            <li>Provides reference point for future adjustments</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Rear Sag Setup -->
+            <div class="slide" data-slide="4">
+                <div class="slide-content">
+                    <h2 class="slide-title">Rear Sag Setup</h2>
+                    
+                    <div class="sag-info">
+                        <div class="status status--info">
+                            <strong>Target: 30-35mm rider sag</strong>
+                        </div>
+                    </div>
+
+                    <div class="sag-procedure">
+                        <h3>Detailed Measurement Procedure</h3>
+                        <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/62edcef5-0dec-4da8-a403-f3ef46a38067.png" alt="Proper sag measurement technique" class="procedure-image">
+                        
+                        <div class="procedure-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Measure Unloaded Height</h4>
+                                    <p>With bike on paddock stand or center stand, measure from rear axle center to a fixed frame reference point directly above. Record as "Distance A".</p>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Measure Loaded Height</h4>
+                                    <p>With rider in full gear seated normally on bike (both feet on ground), measure same points. Record as "Distance B".</p>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Calculate Sag</h4>
+                                    <p><strong>Rider Sag = Distance A - Distance B</strong></p>
+                                    <p>Example: 605mm - 570mm = 35mm sag ✓</p>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Adjust Öhlins Remote Preload</h4>
+                                    <img src="https://pplx-res.cloudinary.com/image/upload/v1754824658/pplx_project_search_images/f63980017c9f60358ea32b3f23e8241c8a4c224c.png" alt="Remote preload knob" class="inline-image">
+                                    <ul>
+                                        <li><strong>Too much sag (>35mm):</strong> Increase preload (turn clockwise)</li>
+                                        <li><strong>Too little sag (<30mm):</strong> Decrease preload (turn counter-clockwise)</li>
+                                        <li>Make small adjustments and re-measure</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="measurement-tips">
+                        <h3>Measurement Tips</h3>
+                        <ul>
+                            <li>Use consistent reference points for all measurements</li>
+                            <li>Ensure bike is on level ground for loaded measurement</li>
+                            <li>Have rider bounce gently to settle suspension before measuring</li>
+                            <li>Take multiple measurements and average for accuracy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: Front Sag Setup -->
+            <div class="slide" data-slide="5">
+                <div class="slide-content">
+                    <h2 class="slide-title">Front Sag Setup</h2>
+                    
+                    <div class="sag-info">
+                        <div class="status status--info">
+                            <strong>Target: 30-35mm rider sag</strong>
+                        </div>
+                    </div>
+
+                    <div class="front-sag-procedure">
+                        <h3>Fork Sag Measurement with Zip Tie Method</h3>
+                        
+                        <div class="procedure-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Prepare Zip Tie Markers</h4>
+                                    <p>Install zip ties around both fork tubes, pushed down against the dust seals. These will show total fork travel.</p>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Measure Unloaded Position</h4>
+                                    <p>With front wheel off ground, measure from bottom of fork tube to zip tie. Record as "Distance A".</p>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Measure Loaded Position</h4>
+                                    <p>With rider seated normally, measure same distance. Record as "Distance B".</p>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Calculate and Adjust</h4>
+                                    <p><strong>Front Sag = Distance A - Distance B</strong></p>
+                                    <div class="adjustment-guide">
+                                        <h5>KYB Preload Adjustment:</h5>
+                                        <ul>
+                                            <li>Use 14mm socket with extension</li>
+                                            <li>Turn clockwise to increase preload (less sag)</li>
+                                            <li>Turn counter-clockwise to decrease preload (more sag)</li>
+                                            <li>Adjust both forks equally to maintain balance</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="balancing-note">
+                        <div class="status status--warning">
+                            <strong>⚖️ Balance Check</strong>
+                        </div>
+                        <p>Always ensure both fork legs have identical preload settings. Uneven preload will cause steering and handling issues.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 7: Rebound Damping -->
+            <div class="slide" data-slide="6">
+                <div class="slide-content">
+                    <h2 class="slide-title">Rebound Damping Adjustment</h2>
+                    
+                    <div class="damping-explanation">
+                        <h3>What Rebound Damping Controls</h3>
+                        <p>Rebound damping controls how quickly the suspension returns to its extended position after compression. Proper rebound prevents oscillation while maintaining tire contact.</p>
+                    </div>
+
+                    <div class="symptoms-grid">
+                        <div class="symptom-card symptom-soft">
+                            <h4>Too Soft Rebound</h4>
+                            <ul>
+                                <li>Pogo effect (bouncing)</li>
+                                <li>Oscillation after bumps</li>
+                                <li>General instability</li>
+                                <li>Wheel rebounds too quickly</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="symptom-card symptom-firm">
+                            <h4>Too Firm Rebound</h4>
+                            <ul>
+                                <li>Suspension packs down</li>
+                                <li>Harsh ride quality</li>
+                                <li>Poor return after compression</li>
+                                <li>Reduced ground clearance</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="adjustment-procedure">
+                        <h3>Adjustment Procedure (Rear First, Then Front)</h3>
+                        
+                        <div class="procedure-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Rear Rebound Adjustment</h4>
+                                    <img src="https://pplx-res.cloudinary.com/image/upload/v1759264682/pplx_project_search_images/f01f5c3f477312de2d13f32897ae70b72a4e7d3e.png" alt="Rebound adjustment knob" class="inline-image">
+                                    <p>Locate adjuster wheel above the shock end eye. Start from a known position and make 1-2 click adjustments.</p>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Front Rebound Adjustment</h4>
+                                    <p>Use screwdriver on top screw of right fork leg. Adjust in same direction as rear for balanced handling.</p>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Testing Method</h4>
+                                    <ul>
+                                        <li>Bounce test: Push down on bike and release</li>
+                                        <li>Should return to position in 1.5-2 oscillations</li>
+                                        <li>Road test at moderate speeds over bumps</li>
+                                        <li>Check for stability and comfort</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tuning-tip">
+                        <div class="status status--success">
+                            <strong>💡 Pro Tip</strong>
+                        </div>
+                        <p>Start with rear rebound adjustment. The rear suspension affects the bike's attitude and weight transfer, which influences front suspension behavior.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 8: Compression Damping -->
+            <div class="slide" data-slide="7">
+                <div class="slide-content">
+                    <h2 class="slide-title">Compression Damping Adjustment</h2>
+                    
+                    <div class="damping-explanation">
+                        <h3>What Compression Damping Controls</h3>
+                        <p>Compression damping controls the rate at which the suspension compresses under load. It affects dive under braking, support under acceleration, and overall ride quality.</p>
+                    </div>
+
+                    <div class="compression-note">
+                        <div class="status status--info">
+                            <strong>📌 Z900 SE Note</strong>
+                        </div>
+                        <p>Only front compression is adjustable on the Z900 SE. The Öhlins S46 rear shock does not have adjustable compression damping.</p>
+                    </div>
+
+                    <div class="symptoms-grid">
+                        <div class="symptom-card symptom-soft">
+                            <h4>Too Soft Compression</h4>
+                            <ul>
+                                <li>Excessive brake dive</li>
+                                <li>Bottoming on big bumps</li>
+                                <li>Vague support feeling</li>
+                                <li>Excessive fork travel usage</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="symptom-card symptom-firm">
+                            <h4>Too Firm Compression</h4>
+                            <ul>
+                                <li>Harsh impact absorption</li>
+                                <li>Chatter over small bumps</li>
+                                <li>Reduced tire contact</li>
+                                <li>Skipping over surface irregularities</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="adjustment-procedure">
+                        <h3>Front Compression Adjustment Procedure</h3>
+                        
+                        <div class="procedure-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Locate Adjustment Point</h4>
+                                    <p>Find the compression damping adjuster at the bottom of each fork leg. May require removing a protective cap.</p>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Initial Setting</h4>
+                                    <p>Start from a known baseline (factory setting or recorded position). Make small adjustments of 1-2 clicks.</p>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Road Testing Protocol</h4>
+                                    <ul>
+                                        <li>Test brake dive at moderate speeds</li>
+                                        <li>Check bottoming resistance over larger bumps</li>
+                                        <li>Evaluate small bump compliance</li>
+                                        <li>Assess overall comfort and control</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Fine Tuning</h4>
+                                    <p>Adjust based on riding style and conditions. Sport riding may prefer firmer compression, while touring benefits from softer settings.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 9: Testing Protocols -->
+            <div class="slide" data-slide="8">
+                <div class="slide-content">
+                    <h2 class="slide-title">Testing & Verification Protocols</h2>
+                    
+                    <div class="testing-overview">
+                        <h3>Systematic Testing Approach</h3>
+                        <p>Proper testing ensures your suspension adjustments translate to real-world performance improvements.</p>
+                    </div>
+
+                    <div class="testing-methods">
+                        <div class="test-method">
+                            <h4>🔗 Zip-Tie Travel Verification</h4>
+                            <div class="test-steps">
+                                <p><strong>Setup:</strong> Install zip ties on fork tubes and shock shaft</p>
+                                <p><strong>Procedure:</strong> Ride normal test loop, check travel usage</p>
+                                <p><strong>Target:</strong> Use 80-90% of available travel on bigger bumps</p>
+                            </div>
+                        </div>
+
+                        <div class="test-method">
+                            <h4>🏍️ Static Bounce Test</h4>
+                            <div class="test-steps">
+                                <p><strong>Front:</strong> Push down on handlebars, release, observe return</p>
+                                <p><strong>Rear:</strong> Push down on seat/tail, release, observe return</p>
+                                <p><strong>Ideal:</strong> 1-2 oscillations before settling</p>
+                            </div>
+                        </div>
+
+                        <div class="test-method">
+                            <h4>🛣️ Road Test Protocol</h4>
+                            <div class="test-loop">
+                                <h5>Standard Test Loop Should Include:</h5>
+                                <ul>
+                                    <li>Smooth straight sections for stability check</li>
+                                    <li>Moderate cornering for balance assessment</li>
+                                    <li>Braking zones for dive evaluation</li>
+                                    <li>Various bump sizes for absorption testing</li>
+                                    <li>Familiar route for comparison reference</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bracket-method">
+                        <h3>Bracket and Converge Method</h3>
+                        <div class="procedure-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Find the Range</h4>
+                                    <p>Test at opposite extremes to identify the usable adjustment range for your riding style.</p>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Split the Difference</h4>
+                                    <p>Adjust to midpoint between extremes and test again.</p>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Converge on Optimum</h4>
+                                    <p>Continue bracketing until you find the sweet spot for your preferences.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testing-consistency">
+                        <div class="status status--warning">
+                            <strong>🎯 Consistency is Key</strong>
+                        </div>
+                        <ul>
+                            <li>Test at same tire pressures</li>
+                            <li>Use same riding gear/weight</li>
+                            <li>Test in similar conditions</li>
+                            <li>Allow suspension to warm up</li>
+                            <li>Make only one adjustment at a time</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 10: Verification & Final Checks -->
+            <div class="slide" data-slide="9">
+                <div class="slide-content">
+                    <h2 class="slide-title">Verification & Final Checks</h2>
+                    
+                    <div class="verification-checklist">
+                        <h3>Final Setup Verification</h3>
+                        
+                        <div class="check-section">
+                            <h4>✅ Sag Verification</h4>
+                            <div class="checklist">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" class="progress-checkbox">
+                                    <span class="checkmark"></span>
+                                    Front sag: 30-35mm confirmed
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" class="progress-checkbox">
+                                    <span class="checkmark"></span>
+                                    Rear sag: 30-35mm confirmed
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" class="progress-checkbox">
+                                    <span class="checkmark"></span>
+                                    Measurements consistent across multiple checks
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="check-section">
+                            <h4>⚖️ Balance & Geometry</h4>
+                            <div class="checklist">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" class="progress-checkbox">
+                                    <span class="checkmark"></span>
+                                    Both fork legs have identical preload
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" class="progress-checkbox">
+                                    <span class="checkmark"></span>
+                                    Bike sits level when loaded
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" class="progress-checkbox">
+                                    <span class="checkmark"></span>
+                                    No unusual tire wear patterns
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="check-section">
+                            <h4>🏍️ Final Road Test</h4>
+                            <div class="road-test-protocol">
+                                <h5>Complete Evaluation Ride:</h5>
+                                <div class="checklist">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" class="progress-checkbox">
+                                        <span class="checkmark"></span>
+                                        Stability at various speeds
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" class="progress-checkbox">
+                                        <span class="checkmark"></span>
+                                        Comfortable ride quality
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" class="progress-checkbox">
+                                        <span class="checkmark"></span>
+                                        Appropriate brake dive control
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" class="progress-checkbox">
+                                        <span class="checkmark"></span>
+                                        Good bump absorption
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" class="progress-checkbox">
+                                        <span class="checkmark"></span>
+                                        Neutral steering feel
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="check-section">
+                            <h4>📝 Documentation</h4>
+                            <div class="final-record">
+                                <h5>Record Final Settings:</h5>
+                                <div class="record-template">
+                                    <p><strong>Date:</strong> ___________</p>
+                                    <p><strong>Final Front Preload:</strong> _____ turns from full soft</p>
+                                    <p><strong>Final Front Rebound:</strong> _____ clicks from full hard</p>
+                                    <p><strong>Final Front Compression:</strong> _____ clicks from full soft</p>
+                                    <p><strong>Final Rear Preload:</strong> _____ position</p>
+                                    <p><strong>Final Rear Rebound:</strong> _____ clicks from full hard</p>
+                                    <p><strong>Final Sag:</strong> F: _____ R: _____</p>
+                                    <p><strong>Notes:</strong> ________________________</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 11: Troubleshooting -->
+            <div class="slide" data-slide="10">
+                <div class="slide-content">
+                    <h2 class="slide-title">Troubleshooting Common Issues</h2>
+                    
+                    <div class="troubleshooting-grid">
+                        <div class="trouble-item">
+                            <h4>🎯 Can't Achieve Target Sag</h4>
+                            <div class="trouble-solutions">
+                                <p><strong>If preload is at maximum and sag is still excessive:</strong></p>
+                                <ul>
+                                    <li>Spring rate may be too soft for rider weight</li>
+                                    <li>Consider aftermarket spring upgrade</li>
+                                    <li>Check for worn suspension components</li>
+                                </ul>
+                                <p><strong>If preload is at minimum and sag is insufficient:</strong></p>
+                                <ul>
+                                    <li>Spring rate may be too firm</li>
+                                    <li>Consider softer spring option</li>
+                                    <li>Verify measurement technique</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="trouble-item">
+                            <h4>⚖️ Settings Are at Extremes</h4>
+                            <div class="trouble-solutions">
+                                <p><strong>When damping adjustments are maxed out:</strong></p>
+                                <ul>
+                                    <li>Spring rate likely incorrect for application</li>
+                                    <li>Consider complete suspension upgrade</li>
+                                    <li>Evaluate riding style vs. suspension setup</li>
+                                    <li>Check for internal suspension damage</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="trouble-item">
+                            <h4>🔧 Hardware Issues</h4>
+                            <div class="trouble-solutions">
+                                <p><strong>When adjusters don't work properly:</strong></p>
+                                <ul>
+                                    <li>Clean adjustment points of dirt/corrosion</li>
+                                    <li>Use proper tools to avoid damage</li>
+                                    <li>Check for worn or damaged adjusters</li>
+                                    <li>Consider professional service if binding occurs</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="trouble-item">
+                            <h4>🏍️ Handling Problems Persist</h4>
+                            <div class="trouble-solutions">
+                                <p><strong>When suspension feels correct but handling is poor:</strong></p>
+                                <ul>
+                                    <li>Check tire pressures and condition</li>
+                                    <li>Verify wheel alignment</li>
+                                    <li>Inspect steering head bearings</li>
+                                    <li>Consider chassis geometry issues</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="upgrade-considerations">
+                        <h3>Hardware Upgrade Considerations</h3>
+                        <div class="upgrade-grid">
+                            <div class="upgrade-option">
+                                <h4>When to Consider Spring Changes</h4>
+                                <ul>
+                                    <li>Can't achieve proper sag range</li>
+                                    <li>Damping adjustments at extremes</li>
+                                    <li>Significant weight change (rider + gear)</li>
+                                    <li>Dramatic riding style change</li>
+                                </ul>
+                            </div>
+                            <div class="upgrade-option">
+                                <h4>When to Seek Professional Help</h4>
+                                <ul>
+                                    <li>Internal suspension component failure</li>
+                                    <li>Oil leaks from dampers</li>
+                                    <li>Binding or damaged adjusters</li>
+                                    <li>Persistent handling issues after proper setup</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 12: Quick Reference -->
+            <div class="slide" data-slide="11">
+                <div class="slide-content">
+                    <h2 class="slide-title">Quick Reference Guide</h2>
+                    
+                    <div class="quick-ref-grid">
+                        <div class="ref-card">
+                            <h3>🎯 Target Numbers</h3>
+                            <div class="target-specs">
+                                <p><strong>Sag (Front & Rear):</strong> 30-35mm</p>
+                                <p><strong>Fork Travel Usage:</strong> 80-90% on big hits</p>
+                                <p><strong>Bounce Test:</strong> 1-2 oscillations</p>
+                                <p><strong>Adjustment Increments:</strong> 1-2 clicks maximum</p>
+                            </div>
+                        </div>
+
+                        <div class="ref-card">
+                            <h3>🏭 Factory Settings</h3>
+                            <div class="factory-specs">
+                                <p><strong>Front Preload:</strong> 11 turns from full soft</p>
+                                <p><strong>Front Rebound:</strong> 6 clicks from full hard</p>
+                                <p><strong>Rear Spring Rate:</strong> 100 N/mm default</p>
+                                <p><strong>Total Ranges:</strong> 30 turns preload, 19 clicks rebound</p>
+                            </div>
+                        </div>
+
+                        <div class="ref-card">
+                            <h3>🔧 Tool Quick List</h3>
+                            <div class="tool-specs">
+                                <p><strong>C-Spanner:</strong> C32 for rear preload</p>
+                                <p><strong>Socket:</strong> 14mm + extension for front preload</p>
+                                <p><strong>Measurement:</strong> Metric tape measure</p>
+                                <p><strong>Travel Check:</strong> Zip ties</p>
+                            </div>
+                        </div>
+
+                        <div class="ref-card">
+                            <h3>⚡ Emergency Reset</h3>
+                            <div class="reset-procedure">
+                                <p><strong>If settings go wrong:</strong></p>
+                                <ol>
+                                    <li>Return to recorded baseline settings</li>
+                                    <li>Or reset to factory specifications</li>
+                                    <li>Test basic functionality</li>
+                                    <li>Start adjustment process over</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sequence-summary">
+                        <h3>📋 Adjustment Sequence Summary</h3>
+                        <div class="sequence-list">
+                            <ol>
+                                <li><strong>Document</strong> baseline settings</li>
+                                <li><strong>Set rear</strong> rider sag (preload)</li>
+                                <li><strong>Set front</strong> rider sag (preload)</li>
+                                <li><strong>Tune rear</strong> rebound damping</li>
+                                <li><strong>Tune front</strong> rebound damping</li>
+                                <li><strong>Tune front</strong> compression damping</li>
+                                <li><strong>Balance</strong> and geometry check</li>
+                                <li><strong>Final</strong> verification testing</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="contact-info">
+                        <h3>📞 Additional Resources</h3>
+                        <div class="resources">
+                            <p><strong>Kawasaki Technical Support:</strong> Contact your local dealer</p>
+                            <p><strong>Öhlins Service:</strong> Authorized Öhlins service centers</p>
+                            <p><strong>Professional Suspension Tuning:</strong> Consult certified technicians</p>
+                            <p><strong>Online Communities:</strong> Z900 forums and suspension groups</p>
+                        </div>
+                    </div>
+
+                    <div class="completion-note">
+                        <div class="status status--success">
+                            <strong>🎉 Setup Complete!</strong>
+                        </div>
+                        <p>You now have a properly configured suspension system. Remember to re-check settings periodically and adjust for different riding conditions or load changes.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Navigation Footer -->
+        <footer class="nav-footer">
+            <button id="prevBtn" class="btn btn--outline">← Previous</button>
+            <div class="nav-dots" id="navDots"></div>
+            <button id="nextBtn" class="btn btn--primary">Next →</button>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
