@@ -1194,6 +1194,25 @@ function refreshPresentationSlidesUI() {
     }
 }
 
+// Delete a historical record by index and refresh UI
+function deleteRecord(index) {
+    try {
+        const history = loadHistory();
+        if (!Array.isArray(history)) return;
+        if (index < 0 || index >= history.length) return;
+        history.splice(index, 1);
+        saveHistory(history);
+        const savedSlide = document.querySelector('.slide[data-history="true"]');
+        if (savedSlide) {
+            savedSlide.parentNode.removeChild(savedSlide);
+            buildHistorySlide();
+            refreshPresentationSlidesUI();
+        }
+    } catch (e) {
+        console.error('deleteRecord error', e);
+    }
+}
+
 // Friendly label mapping: map key suffixes (roles or label starts) to human-readable labels
 const FRIENDLY_LABELS = {
     'sag-F': 'Sag (Front)',
